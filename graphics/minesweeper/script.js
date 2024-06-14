@@ -145,3 +145,17 @@ function showTime()
     document.getElementById('clock').innerHTML = time;
 }
 showTime();
+
+// Rotating wallpapers
+const wallpapers = document.querySelectorAll('.wallpaper');
+let wallpaperIndex = 0;
+function changeWallpaper() {
+    wallpapers[wallpaperIndex].classList.remove('showing');
+
+    wallpaperIndex++;
+    if (wallpaperIndex >= wallpapers.length) wallpaperIndex = 0;
+
+    wallpapers[wallpaperIndex].classList.add('showing');
+}
+
+setInterval(changeWallpaper, 60000);

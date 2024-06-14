@@ -10,10 +10,18 @@ body {
     left: 0px;
     top: 0px;
 }
-#wallpaper {
+
+/* Wallpaper definitions */
+.wallpaper {
     position: absolute;
     left: 0px;
     top: -120px;
+    opacity: 0;
+    transition: opacity 5s ease-in-out;
+}
+.showing {
+    opacity: 1;
+
 }
 
 /* Font definitions */
