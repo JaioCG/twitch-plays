@@ -1,0 +1,47 @@
+/* Main Body definitions */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ccc;
+}
+.bg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+#wallpaper {
+    position: absolute;
+    left: 0px;
+    top: -120px;
+}
+
+/* Font definitions */
+@font-face {
+    font-family: "Tahoma";
+    src: url("fonts/TAHOMA.TTF");
+}
+
+/* Board definitions */
+.board {
+    display: grid;
+    grid-template-columns: repeat(var(--column-size), 32px);
+    grid-template-rows: repeat(var(--size), 32px);
+
+    position: absolute;
+    left: 880px;
+    top: 250px;
+}
+
+#clock {
+    position: absolute;
+    left: 1812px;
+    top: 1020px;
+    width: 108px;
+    height: 60px;
+
+    font-family: "Tahoma";
+    font-size: 20px;
+    color: #fff;
+    line-height: 60px;
+}

@@ -1,0 +1,58 @@
+{
+  "name": "twitch-plays",
+  "version": "0.1.0",
+  "description": "Various \"Twitch Plays\" games made by Jaio",
+  "homepage": "https://twitch.tv/jaiocg",
+  "author": {
+    "name": "Jaio",
+    "email": "jaio0701@gmail.com",
+    "url": "https://github.com/jaiocg"
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^2.0.0",
+    "dashboardPanels": [
+      {
+        "name": "panel",
+        "title": "Panel",
+        "width": 2,
+        "file": "panel.html",
+        "headerColor": "#525F78"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "minesweeper/minesweeper.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "tmi.js": "^1.8.5"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules
+coverage
+bower_components
+.parcel-cache
+
+# Individual asset folders for games (no stealy ☺)
+/graphics/minesweeper/assets
