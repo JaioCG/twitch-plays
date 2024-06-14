@@ -13,6 +13,7 @@ var timerActive = true;
 var time = 0;
 var smileyElement = document.getElementById('smiley');
 
+// Create board (from minesweeper.js)
 board = createBoard(BOARD_WIDTH, BOARD_HEIGHT, MINE_COUNT);
 console.log(board);
 boardElement = document.querySelector('.board');
@@ -20,7 +21,7 @@ boardElement.style.setProperty('--column-size', BOARD_WIDTH);
 boardElement.style.setProperty('--row-size', BOARD_HEIGHT);
 timer();
 
-// Create board (from minesweeper.js)
+// Cheeky hack to restart game
 function restartGame(r)
 {
     if (r) {
@@ -28,9 +29,7 @@ function restartGame(r)
     }
 }
 
-restartGame(canReset);
-
-// Visually create board on html
+// Visually create board on html, and listenFor's from chat commands
 board.forEach(row => {
     row.forEach(tile => {
         boardElement.append(tile.element);

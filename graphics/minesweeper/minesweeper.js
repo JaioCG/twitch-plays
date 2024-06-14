@@ -1,4 +1,4 @@
-// Constants
+// Game constants
 export const TILE_STATUS = {
     HIDDEN: 'hidden',
     MINE: 'mine',
@@ -6,7 +6,7 @@ export const TILE_STATUS = {
     MARKED: 'marked'
 };
 
-// Function to create and return game board and mines
+// Create and return game board and mines
 export function createBoard(BOARD_WIDTH, BOARD_HEIGHT, MINE_COUNT)
 {
     const board = [];
@@ -74,20 +74,21 @@ numMinesRep.value = numMines;
 // Flag tile, also supports unflagging
 export function flagTile(tile, x, y)
 {
+    // If tile isn't the one in command, or if it isnt hidden or marked, return
     if ((tile.status !== TILE_STATUS.HIDDEN &&
-        tile.status !== TILE_STATUS.MARKED)) {
-        return;
-    }
-    if (tile.x != x || tile.y != y) {
+        tile.status !== TILE_STATUS.MARKED) ||
+        (tile.x != x || tile.y != y)) {
         return;
     }
 
+    // If tile is already flagged, unflag it
     if (tile.status === TILE_STATUS.MARKED) {
         console.log(`Unflagged tile at ${tile.x}, ${tile.y}`)
         tile.status = TILE_STATUS.HIDDEN;
         tile.element.src = './assets/tiles/unrevealed.png';
         numMines++;
         numMinesRep.value = numMines;
+    // If tile is hidden, flag it
     } else {
         console.log(`Flagged tile at ${tile.x}, ${tile.y}`)
         tile.status = TILE_STATUS.MARKED;
@@ -96,34 +97,32 @@ export function flagTile(tile, x, y)
         numMinesRep.value = numMines;
     }
 
+    // Mine counter on-screen display
     let minesArr = numMines.toString().split('');
     while (minesArr.length < 4) {
         minesArr.unshift('0');
     }
-
     // Deal with - sign
     for (let i = 0; i < minesArr.length; i++) {
         if (minesArr[i] === '-') {
             minesArr[i] = 'negative';
         }
     }
-
     document.getElementById('mines-thos').src = `./assets/display/${minesArr[0]}.png`;
     document.getElementById('mines-huns').src = `./assets/display/${minesArr[1]}.png`;
     document.getElementById('mines-tens').src = `./assets/display/${minesArr[2]}.png`;
     document.getElementById('mines-ones').src = `./assets/display/${minesArr[3]}.png`;
-
-    console.log(tile);
 }
 
 // Reveal tile
 export function revealTile(board, tile, x, y, isFirstClick)
 {
-    if (tile.x != x || tile.y != y) {
+    // If tile isn't the one in command or is flagged already, return
+    if ((tile.x != x || tile.y != y)) {
         return;
     }
 
-    // Return if tile is flagged
+    // If tile is hidden, reveal it
     if (tile.status === TILE_STATUS.HIDDEN) {
         // First click bomb protection
         if (isFirstClick) {
@@ -139,14 +138,14 @@ export function revealTile(board, tile, x, y, isFirstClick)
             }
         }
 
-        console.log(`Revealed tile at ${tile.x}, ${tile.y}`);
-
+        // If mine (checkGameEnd() in script.js handles winning/losing)
         if (tile.mine) {
             tile.status = TILE_STATUS.MINE;
             tile.element.src = './assets/tiles/bomb.png';
             return;
         }
 
+        // Otherwise, reveal number or empty tile
         tile.status = TILE_STATUS.NUMBER;
         const adjacentTiles = nearbyTiles(board, tile);
         const mines = adjacentTiles.filter(t => t.mine);
@@ -157,8 +156,8 @@ export function revealTile(board, tile, x, y, isFirstClick)
             tile.element.src = './assets/tiles/0.png';
             adjacentTiles.forEach(t => revealTile(board, t, t.x, t.y));
         }
+    // Chording (reveal all adjacent tiles if number of flags matches number of mines)
     } else if (tile.status === TILE_STATUS.NUMBER) {
-        // Chording (reveal all adjacent tiles if number of flags matches number of mines)
         console.log(`Chording at ${tile.x}, ${tile.y}`);
         const adjacentTiles = nearbyTiles(board, tile);
         const adjacentFlags = adjacentTiles.filter(t => t.status === TILE_STATUS.MARKED);
