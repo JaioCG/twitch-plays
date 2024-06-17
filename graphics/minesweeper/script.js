@@ -91,7 +91,7 @@ function checkGameEnd(thisX, thisY)
     }
     if (lose) {
         console.log('You lose!');
-        setTimeout(() => { smileyElement.src = './assets/smiley/lose.png' }, 101);
+        setTimeout(() => { smileyElement.src = './assets/smiley/lose.png' }, 150);
         board.forEach(row => {
             row.forEach(tile => {
                 if (tile.status === TILE_STATUS.MARKED) flagTile(tile, tile.x, tile.y);
