@@ -4,7 +4,7 @@ A colletion of various "Twitch Plays" styled games, all packed neatly into one [
 
 Obvious inspirations and shoutouts to [TwitchPlaysPokemon](https://www.twitch.tv/twitchplayspokemon). Without them, this whole "Twitch Plays" fad wouldn't exist.
 
-Actual graphics and image files aren't included, however screenshots are provided for you to make your own. :)
+Feel free to use this bundle as inspiration or directly for your own Twitch Plays events or livestreams! Actual graphics/image files aren't included so streams aren't fully identical, but included with each game is a markdown file with all of the paths of the assets.
 
 ## Games
 

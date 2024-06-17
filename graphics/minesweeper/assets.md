@@ -1,0 +1,44 @@
+# Minesweeper Assets File Paths
+
+- /assets
+    - /display
+        - [0-9].png
+            - Numbers for the tile/mines remaining displays
+        - blank.png
+            - Default texture for displays
+        - negative.png
+            - Used for negative mine counts
+    - /fonts
+        - TAHOMA.TTF
+            - Used for live clock, everything else is hard-drawn in `main-bg.png`
+    - /smiley
+        - lose.png
+        - normal.png
+        - place-bomb.png
+        - win.png
+            - All smiley face images for losing (X face), normal (smiley), clicking a space (surprised face), and sunglasses face (winning)
+    - /tiles
+        - [0-8].png
+            - Obviously 9 is impossible lol
+        - bomb_hit.png
+        - bomb_incorrect.png
+        - bomb.png
+            - Various images for different bomb states
+        - flag.png
+        - unrevealed.png
+    - /wallpapers
+        - ascent.jpg
+        - autumn.jpg
+        - azul.jpg
+        - bliss.jpg
+        - follow.jpg
+        - friend.jpg
+        - radiance.jpg
+        - redmoondesert.jpg
+        - stonehenge.jpg
+        - tulips.jpg
+        - vortecspace.jpg
+        - wind.jpg
+            - All real WinXP wallpapers, downloaded (i think) from [archive.org](https://archive.org/details/windows-xp-desktop-backgrounds) 
+    - main-bg.png
+        - Taskbar, Notepad window, AIM window, Minesweeper window border
